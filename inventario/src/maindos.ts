@@ -40,12 +40,12 @@ class Servidor implements Equipo {
 
 class EquipoFactory {
   public crearEquipo(
-    tipo: string,
+    __tipo: string,
     nombre: string,
     ram: string,
     procesador: string
   ): Equipo {
-    switch (tipo.toLowerCase()) {
+    switch (__tipo.toLowerCase()) {
       case "notebook":
         return new Notebook(nombre, ram, procesador);
       case "desktop":
@@ -53,7 +53,7 @@ class EquipoFactory {
       case "servidor":
         return new Servidor(nombre, ram, procesador);
       default:
-        throw new Error(`Tipo de equipo no reconocido: ${tipo}`);
+        throw new Error(`Tipo de equipo no reconocido: ${__tipo}`);
     }
   }
 }

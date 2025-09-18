@@ -1,6 +1,6 @@
 class Inventario {
   private static instancia: Inventario;
-  private equipos: { nombre: string; tipo: string; estado: string }[] = [];
+  private equipos: { nombre: string; _tipo: string; estado: string }[] = [];
 
   private constructor() {}
 
@@ -11,11 +11,11 @@ class Inventario {
     return Inventario.instancia;
   }
 
-  public agregarEquipo(nombre: string, tipo: string, estado: string): void {
-    this.equipos.push({ nombre, tipo, estado });
+  public agregarEquipo(nombre: string, _tipo: string, estado: string): void {
+    this.equipos.push({ nombre, _tipo, estado });
   }
 
-  public listarEquipos(): { nombre: string; tipo: string; estado: string }[] {
+  public listarEquipos(): { nombre: string; _tipo: string; estado: string }[] {
     return this.equipos;
   }
 }
@@ -23,4 +23,4 @@ class Inventario {
 const inventario = Inventario.obtenerInstancia();
 inventario.agregarEquipo("Notebook HP", "Portátil", "disponible");
 console.log(inventario.listarEquipos()); 
-// [{ nombre: "Notebook HP", tipo: "Portátil", estado: "disponible" }]
+// [{ nombre: "Notebook HP", _tipo: "Portátil", estado: "disponible" }]
